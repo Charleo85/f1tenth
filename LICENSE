@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018 Charlie Wu
+Copyright (c) 2018 Charlie Wu, Tong Qiu, Ryan McCampbell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,10 +20,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-ADDITIONAL NOTES: All contents in the repository are created and owned by the 
-contributors: Ryan McCampbell, Tong Qiu, and Jibang Wu. Any students who is 
-currently enrolled in CS 4501: F1-10 Autonomous Racing at UVa should NOT use 
-any portion of this repository as reference to their own homework assignments.
-Any violation would be considered as a serious offence to the UVa Honor Code,
-and we reserve the rights to report such actions to the instructors, TAs, and
-the UVa Honor Committee.
+ADDITIONAL NOTES: All content in the repository is created by Ryan McCampbell, 
+Tong Qiu, and Jibang Wu. Any students who is currently enrolled in CS 4501: 
+F1-10 Autonomous Racing at UVa should NOT use any portion of this repository
+as reference to their own homework assignments. Any violation would be
+considered as a serious offence to the UVa Honor Code, and we reserve the 
+rights to report such actions to the instructor, TAs, and the Honor Committee.
