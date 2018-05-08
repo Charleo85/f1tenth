@@ -14,7 +14,7 @@ What you should do:
 """
 
 def convert(val):
-    return int(round(9831 + 32.77 * val))
+    return int(9831 + 32.7 * val)
 
 def callback(data):
     print 'received data: %f, %f' % (data.velocity, data.angle)
@@ -26,7 +26,7 @@ def callback(data):
 
 if __name__ == '__main__':
     global pub
-    rospy.init_node('talker', anonymous=True)
+    rospy.init_node('talker')
     rospy.Subscriber('drive_parameters', drive_param, callback)
     pub = rospy.Publisher('drive_pwm', drive_values, queue_size=10)
     print 'Serial talker initialized'

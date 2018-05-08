@@ -1,7 +1,0 @@
-<launch>
-  <node name="urg_node" pkg="urg_node", type="urg_node" />
-  <node name="serial_node" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM0" />
-  <node name="talker" pkg="race" type="talker.py" />
-  <!-- to be added: control.py -->
-  <!-- to be added: dist_finder.py -->
-</launch>
