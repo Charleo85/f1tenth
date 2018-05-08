@@ -9,7 +9,7 @@ import sys
 
 kp = 14.0
 kd = 0.09
-servo_offset = 18.5	# zero correction offset in case servo is misaligned. 
+servo_offset = 18.5	# zero correction offset in case servo is misaligned.
 prev_error = 0.0
 
 pub = rospy.Publisher('drive_parameters', drive_param, queue_size=1)
@@ -45,7 +45,7 @@ def handler():
 
 if __name__ == '__main__':
     print "Listening to error for PID"
-    
+
     kp = float(sys.argv[1]) if len(sys.argv) > 1 else kp
     kd = float(sys.argv[2]) if len(sys.argv) > 2 else kd
 
