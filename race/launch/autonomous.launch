@@ -1,10 +1,11 @@
 <launch>
-  <arg name="kp" default="35.0" />
-  <arg name="kd" default="0.5" />
+  <arg name="kp" default="30.0" />
+  <arg name="kd" default="3.0" />
   <arg name="vel" default="10.0" />
+  <arg name="ratio" default="0.0" />
   <node name="urg_node" pkg="urg_node" type="urg_node" />
   <node name="serial_node" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM1" />
   <node name="talker" pkg="race" type="talker.py" />
   <node name="control" pkg="race" type="control.py" args="$(arg kp) $(arg kd)" />
-  <node name="dist_finder" pkg="race" type="dist_finder.py" args="$(arg vel)" />
+  <node name="dist_finder" pkg="race" type="dist_finder.py" args="$(arg vel) $(arg ratio)" />
 </launch>

@@ -15,8 +15,10 @@ error = 0.0
 
 pub = rospy.Publisher('error', pid_input, queue_size=10)
 
-# constants: velocity at 10.0, distance at 0.5m
+# constants: velocity at 10.0
 vel = 10.0
+base_vel = 10.0
+vel_scale = 1.0
 obstacle_check = [(80, 0.5), (90, 1.0), (100, 0.5)]
 
 
@@ -36,10 +38,12 @@ def getRange(data, theta):
     idx_float = ((theta+30.0) / 240.0) * (len(data.ranges) - 1)
     idx = int(round(idx_float))
     ret = data.ranges[idx]
-    return ret if not math.isnan(ret) and not math.isinf(ret) else 5.0
+    return ret if not math.isnan(ret) and not math.isinf(ret) else 3.0
 
 
 def callback(data):
+    global vel
+
     theta = 45.0
     a = getRange(data, theta)
     b = getRange(data, 0.0)
@@ -57,6 +61,9 @@ def callback(data):
         print 'nan occured:', a, b
         error = 0.0
 
+    vel = base_vel * 1.0 / (vel_scale * abs(error) + 1)
+    print vel
+    
     msg = pid_input()
     msg.pid_error = error
     msg.pid_vel = vel
@@ -73,7 +80,9 @@ def callback(data):
 
 if __name__ == '__main__':
     print "Laser node started"
-    vel = float(sys.argv[1]) if len(sys.argv) > 1 else vel
+    base_vel = float(sys.argv[1]) if len(sys.argv) > 1 else base_vel
+    vel_scale = float(sys.argv[2]) if len(sys.argv) > 2 else vel_scale
+    vel = base_vel
 
     rospy.init_node('dist_finder', anonymous=True)
     rospy.Subscriber("scan", LaserScan, callback)
